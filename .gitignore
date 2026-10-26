@@ -1,6 +1,8 @@
 build/
 .claude/
-frames/.tmp-*/
+public/frames/.tmp-*/
 img/
 tools/build-frames.sh
 footage/*.mp4
+node_modules/
+dist/

@@ -32,9 +32,9 @@ build() { # mode W H
     "[0][1]xfade=transition=fade:duration=$X:offset=2.3[v1];[v1][2]xfade=transition=fade:duration=$X:offset=5.36[v2];[v2][3]xfade=transition=fade:duration=$X:offset=8.33[v3];[v3][4]xfade=transition=fade:duration=$X:offset=11.09[v4];[v4][5]xfade=transition=fade:duration=$X:offset=14.275[v5];[v5][6]xfade=transition=fadeblack:duration=$X:offset=16.47[v6];[v6][7]xfade=transition=fade:duration=$X:offset=19.38,fade=t=out:st=21.7:d=0.6[v]" \
     -map "[v]" -c:v libx264 -crf 14 -preset veryfast "$TMP/$mode-film.mp4"
   local dur; dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$TMP/$mode-film.mp4")
-  rm -rf "frames/$mode"; mkdir -p "frames/$mode"
-  ffmpeg -v error -y -i "$TMP/$mode-film.mp4" -vf "fps=${TOTAL}/${dur}" -frames:v $TOTAL -q:v 4 "frames/$mode/%04d.jpg"
-  echo "$mode: $(ls frames/$mode | wc -l) frames, $(du -sh frames/$mode | cut -f1)"
+  rm -rf "public/frames/$mode"; mkdir -p "public/frames/$mode"
+  ffmpeg -v error -y -i "$TMP/$mode-film.mp4" -vf "fps=${TOTAL}/${dur}" -frames:v $TOTAL -q:v 4 "public/frames/$mode/%04d.jpg"
+  echo "$mode: $(ls public/frames/$mode | wc -l) frames, $(du -sh public/frames/$mode | cut -f1)"
 }
 build desktop 1600 900
 build mobile 720 1280
