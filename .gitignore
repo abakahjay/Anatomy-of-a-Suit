@@ -1,0 +1,6 @@
+build/
+.claude/
+frames/.tmp-*/
+img/
+tools/build-frames.sh
+footage/*.mp4

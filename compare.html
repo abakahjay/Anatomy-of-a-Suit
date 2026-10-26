@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Side by Side</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{background:#0b0d0c;color:#ece6da;font:500 11px system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;height:100vh;display:grid;grid-template-columns:420px 1fr;gap:12px;padding:12px}
+  section{display:grid;grid-template-rows:auto 1fr;gap:8px;min-height:0}
+  iframe{width:100%;height:100%;border:1px solid rgba(236,230,218,.16);background:#000}
+  @media (max-width:900px){body{grid-template-columns:1fr;grid-template-rows:70vh 90vh;height:auto}}
+</style>
+</head>
+<body>
+  <section><span>Original (TikTok)</span><iframe src="https://www.tiktok.com/embed/v2/7688021171429723424" allow="autoplay; encrypted-media; fullscreen" title="Original TikTok video"></iframe></section>
+  <section><span>Rebuild (scroll inside)</span><iframe src="index.html" title="The Anatomy of a Suit rebuild"></iframe></section>
+</body>
+</html>
