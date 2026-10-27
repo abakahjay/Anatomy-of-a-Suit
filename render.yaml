@@ -1,0 +1,19 @@
+# Render Blueprint: The Anatomy of a Suit as a static site.
+services:
+  - type: web
+    name: anatomy-of-a-suit
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+    headers:
+      # hashed bundles never change
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      # film frames keep their names when re-cut, so cache for a day
+      - path: /frames/*
+        name: Cache-Control
+        value: public, max-age=86400
